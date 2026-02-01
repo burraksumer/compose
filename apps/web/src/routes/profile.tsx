@@ -19,7 +19,11 @@ export const Route = createFileRoute("/profile")({
 });
 
 function RouteComponent() {
-  const { session } = Route.useRouteContext();
+  const { data: session } = authClient.useSession();
+
+  if (!session) {
+    return null;
+  }
 
   return (
     <div className="container mx-auto max-w-2xl px-4 py-8">
@@ -32,16 +36,16 @@ function RouteComponent() {
           </CardHeader>
           <CardContent className="space-y-2">
             <p>
-              <span className="font-medium">Name:</span> {session.data?.user.name}
+              <span className="font-medium">Name:</span> {session.user.name}
             </p>
             <p>
-              <span className="font-medium">Email:</span> {session.data?.user.email}
+              <span className="font-medium">Email:</span> {session.user.email}
             </p>
-            {session.data?.user.image && (
+            {session.user.image && (
               <div>
                 <span className="font-medium">Profile Image:</span>
                 <img
-                  src={session.data.user.image}
+                  src={session.user.image}
                   alt="Profile"
                   className="ml-2 mt-2 h-16 w-16 rounded-full"
                 />
@@ -56,7 +60,7 @@ function RouteComponent() {
             <CardDescription>Change your display name</CardDescription>
           </CardHeader>
           <CardContent>
-            <UpdateNameForm currentName={session.data?.user.name || ""} />
+            <UpdateNameForm currentName={session.user.name || ""} />
           </CardContent>
         </Card>
       </div>

@@ -1,4 +1,5 @@
 import { useForm } from "@tanstack/react-form";
+import { useEffect } from "react";
 import { toast } from "sonner";
 import z from "zod";
 
@@ -41,6 +42,10 @@ export default function UpdateNameForm({ currentName }: { currentName: string })
       }),
     },
   });
+
+  useEffect(() => {
+    form.setFieldValue("name", currentName);
+  }, [currentName, form]);
 
   return (
     <form
