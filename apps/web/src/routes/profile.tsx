@@ -1,5 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 
+import ChangePasswordForm from "@/components/change-password-form";
 import UpdateNameForm from "@/components/update-name-form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { authClient } from "@/lib/auth-client";
@@ -61,6 +62,16 @@ function RouteComponent() {
           </CardHeader>
           <CardContent>
             <UpdateNameForm currentName={session.user.name || ""} />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Change Password</CardTitle>
+            <CardDescription>Update your account password</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ChangePasswordForm />
           </CardContent>
         </Card>
       </div>
