@@ -42,7 +42,9 @@ export default function UserMenu() {
           <DropdownMenuItem asChild>
             <Link to="/profile">Profile Settings</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>{session.user.email}</DropdownMenuItem>
+          <DropdownMenuLabel className="text-xs text-muted-foreground">
+            {session.user.email}
+          </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem
             variant="destructive"
