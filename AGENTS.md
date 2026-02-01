@@ -120,4 +120,4 @@ This application prioritizes **maximum composability**. Every piece of functiona
 - Use `bun run check-types` to verify types across all packages
 - Prefer type inference where possible, but be explicit when it improves clarity
 - Leverage workspace package imports for type-safe cross-package dependencies
-- Never use any
+- Never use any for types
