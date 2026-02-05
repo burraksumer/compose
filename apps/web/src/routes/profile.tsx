@@ -50,7 +50,7 @@ function RouteComponent() {
 						</p>
 						{session.user.image && (
 							<div>
-								<span className="font-medium">Profile Image:::::</span>
+								<span className="font-medium">Profile Image:</span>
 								<img
 									src={session.user.image}
 									alt="Profile"
